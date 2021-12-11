@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="section-container">
+        <span>
+            <a href="/api/productos">Back home</a>
+        </span>
+        <h1>Ingresar nuevo producto</h1>
+    </div>
+    <form action="/api/productos" method="post" class="form-control" >
+        <input type="text" placeholder="Titulo" name="title" class="form-control" required/>
+        <input type="number" placeholder="Precio" name="price" class="form-control" required/>
+        <input type="text" placeholder="Thumbnail" class="form-control" name="thumbnail" required/>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>

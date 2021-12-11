@@ -41,15 +41,20 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-    await seeProducts.deleteById(req.params.id)
-    res.send("Eliminación correcta")
+    let result = await seeProducts.getById(req.params.id)
+    if(result === null) {
+        res.send(result = { error : 'producto no encontrado' })
+    } else {
+        await seeProducts.deleteById(req.params.id)
+        res.send("Eliminación correcta")    
+    }
 })
 
 router.put('/:id', async (req, res) => {
     const id = req.params.id
     const result = await seeProducts.update(id, req.body)
     
-    result != null ? res.send("Producto actualizado") : (res.send("ID no válida"), console.log("ID no válida"))
+    result != null ? res.send("Producto actualizado") : res.send({ error : 'producto no encontrado' })
 })
 
 app.use('/api/productos', router)

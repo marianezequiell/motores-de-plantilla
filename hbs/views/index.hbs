@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="section-container">
+        <span>
+            <a href="/api/productos/new-product">Ingresar nuevo producto</a>
+        </span>
+        <h1>Home</h1>
+    </div>
+    <table class="section-container table">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Thumbnail</th>
+        </tr>
+        <tbody>
+            {{#each datos}}
+                <tr>
+                    <td scope="row">{{this.title}}</td>
+                    <td scope="row">{{this.price}}</td>
+                    <td scope="row">
+                        <img src={{this.thumbnail}} alt={{this.thumbnail}}/>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
